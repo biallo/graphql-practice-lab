@@ -56,5 +56,9 @@ query ProjectList {
       question: "Fragment 使用过多有什么风险？",
       answer: "查询可读性会下降，字段来源不直观，所以要用清晰命名并控制层级。",
     },
+    {
+      question: "Type Condition 在 Fragment 中有什么作用？",
+      answer: "它声明这个 fragment 适用于哪个 GraphQL 类型，只有该类型上存在的字段才能写进 fragment。",
+    },
   ],
 };

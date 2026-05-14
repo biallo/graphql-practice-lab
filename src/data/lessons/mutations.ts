@@ -55,5 +55,13 @@ type CreateProjectPayload {
       question: "为什么复杂参数适合使用 input 类型？",
       answer: "input 类型能把参数组织成稳定结构，字段更清晰，也方便后续扩展。",
     },
+    {
+      question: "Mutation 和 Query 最核心的语义区别是什么？",
+      answer: "Query 表达读取数据，Mutation 表达会改变系统状态的写操作，例如创建、更新或删除。",
+    },
+    {
+      question: "Mutation 的响应为什么应服务于界面刷新？",
+      answer: "写操作完成后，客户端通常需要更新页面状态，所以响应应返回被修改对象、业务状态或错误信息，而不只是成功布尔值。",
+    },
   ],
 };

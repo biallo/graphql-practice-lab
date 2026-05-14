@@ -27,6 +27,20 @@ export const whatIsGraphql: Lesson = {
         "把 GraphQL 想成一份可执行的数据契约会更准确：它既约束请求，也约束响应，还能让工具自动补全、校验和生成类型。",
       ],
     },
+    {
+      heading: "一次请求大致怎样执行",
+      body: [
+        "客户端把 Query 和变量发给 GraphQL 服务，服务端先根据 Schema 解析和校验请求，再按字段执行 resolver，最后组装出和查询形状接近的响应。",
+        "这个流程说明了 GraphQL 的重点不只是语法。Schema 负责约束边界，Query 负责表达需求，resolver 才是真正连接数据源和业务规则的执行层。",
+      ],
+    },
+    {
+      heading: "REST 与 GraphQL 不是替代关系",
+      body: [
+        "GraphQL 常常作为聚合层存在：上层给客户端一个类型明确的查询接口，底层仍然可以调用 REST 服务、数据库、微服务或第三方 API。",
+        "如果一个场景只需要非常简单的资源读取，或者强依赖 HTTP 缓存、文件下载、大型二进制传输，REST 或专用接口可能更直接。GraphQL 的价值在复杂数据组合和多端协作时更明显。",
+      ],
+    },
   ],
   featureCards: [
     {
@@ -44,6 +58,14 @@ export const whatIsGraphql: Lesson = {
     {
       title: "渐进演进",
       text: "新增字段通常不会影响旧查询，过期字段可用 deprecated 标记逐步迁移。",
+    },
+    {
+      title: "部分成功响应",
+      text: "某些字段失败时，GraphQL 仍可能返回部分 data，并同时返回 errors。",
+    },
+    {
+      title: "不是性能银弹",
+      text: "它减少过度获取，但仍需要处理 N+1、深层查询和查询成本控制。",
     },
   ],
   examples: [
@@ -90,8 +112,24 @@ export const whatIsGraphql: Lesson = {
       answer: "因为客户端在查询中精确声明字段，服务端按声明返回数据，不需要把固定接口的完整资源全部传回来。",
     },
     {
-      question: "第一课最重要的三个概念是什么？",
-      answer: "Schema 定义能力，Query 表达需求，Resolver 把字段解析为真实数据。",
+      question: "GraphQL 服务通常为什么可以只有一个 endpoint？",
+      answer: "因为具体的数据需求由查询文档表达，同一个 endpoint 可以接收不同 Query 或 Mutation，再由 Schema 和 resolver 决定如何执行。",
+    },
+    {
+      question: "Schema、Query、Resolver 分别解决什么问题？",
+      answer: "Schema 定义服务端能提供什么，Query 描述客户端要什么，Resolver 负责把字段解析成真实数据。",
+    },
+    {
+      question: "为什么说 GraphQL 不绑定数据库？",
+      answer: "GraphQL 只定义 API 查询和执行模型，resolver 可以从数据库、REST 服务、第三方 API 或内存对象中获取数据。",
+    },
+    {
+      question: "REST 和 GraphQL 一定是二选一吗？",
+      answer: "不是。GraphQL 可以作为聚合层包装 REST、数据库或微服务；简单资源接口、文件下载和强 HTTP 缓存场景仍然可以继续使用 REST 或专用接口。",
+    },
+    {
+      question: "为什么 GraphQL 不是性能银弹？",
+      answer: "GraphQL 能让客户端少拿无用字段，但复杂嵌套查询仍可能造成 N+1、深层查询或高成本执行，需要在服务端额外治理。",
     },
   ],
 };

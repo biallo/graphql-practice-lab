@@ -6,6 +6,9 @@ const selectedLessonKey = "graphql-lab:selected-lesson";
 const completedLessonsKey = "graphql-lab:completed-lessons";
 
 type ScrollReason = "initial" | "selection";
+type RenderOptions = {
+  resetContentScroll?: boolean;
+};
 
 export function createApp(app: HTMLElement): void {
   let activeLessonId = getInitialLessonId();
@@ -21,7 +24,7 @@ export function createApp(app: HTMLElement): void {
     activeLessonId = lessonId;
     activeTab = "explain";
     persistSelectedLesson(lessonId);
-    renderApp("initial");
+    renderApp("initial", { resetContentScroll: true });
   });
 
   function getInitialLessonId(): string {
@@ -34,7 +37,7 @@ export function createApp(app: HTMLElement): void {
     return lessons[0].id;
   }
 
-  function renderApp(scrollReason: ScrollReason): void {
+  function renderApp(scrollReason: ScrollReason, options: RenderOptions = {}): void {
     const completeCount = lessons.filter((lesson) => completedLessons.has(lesson.id)).length;
     const completePercent = Math.round((completeCount / lessons.length) * 100);
 
@@ -48,6 +51,9 @@ export function createApp(app: HTMLElement): void {
     });
 
     bindEvents();
+    if (options.resetContentScroll) {
+      resetContentScroll();
+    }
     scrollActiveCourseIntoView(scrollReason, activeLessonId);
   }
 
@@ -89,7 +95,7 @@ export function createApp(app: HTMLElement): void {
     activeLessonId = normalizedLessonId;
     activeTab = "explain";
     persistSelectedLesson(normalizedLessonId);
-    renderApp(scrollReason);
+    renderApp(scrollReason, { resetContentScroll: true });
   }
 }
 
@@ -128,5 +134,12 @@ function scrollActiveCourseIntoView(reason: ScrollReason, activeLessonId: string
     if (reason === "initial" || !isFullyVisible) {
       activeItem.scrollIntoView({ block: "nearest" });
     }
+  });
+}
+
+function resetContentScroll(): void {
+  requestAnimationFrame(() => {
+    document.querySelector<HTMLElement>(".content-area")?.scrollTo({ top: 0, left: 0 });
+    window.scrollTo({ top: 0, left: 0 });
   });
 }
