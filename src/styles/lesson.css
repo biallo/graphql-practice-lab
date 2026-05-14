@@ -26,9 +26,9 @@
 
 .lesson-header h2 {
   margin: 0;
-  max-width: 14ch;
+  max-width: min(100%, 22ch);
   font-size: clamp(1.25rem, 3vw, 2.5rem);
-  line-height: 0.95;
+  line-height: 1.08;
 }
 
 .lesson-header p {

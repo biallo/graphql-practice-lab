@@ -7,6 +7,7 @@ const completedLessonsKey = "graphql-lab:completed-lessons";
 
 type ScrollReason = "initial" | "selection";
 type RenderOptions = {
+  preserveCourseListScroll?: boolean;
   resetContentScroll?: boolean;
 };
 
@@ -38,6 +39,9 @@ export function createApp(app: HTMLElement): void {
   }
 
   function renderApp(scrollReason: ScrollReason, options: RenderOptions = {}): void {
+    const previousCourseListScrollTop = options.preserveCourseListScroll
+      ? (document.querySelector<HTMLElement>(".course-list")?.scrollTop ?? 0)
+      : null;
     const completeCount = lessons.filter((lesson) => completedLessons.has(lesson.id)).length;
     const completePercent = Math.round((completeCount / lessons.length) * 100);
 
@@ -51,6 +55,9 @@ export function createApp(app: HTMLElement): void {
     });
 
     bindEvents();
+    if (previousCourseListScrollTop !== null) {
+      restoreCourseListScroll(previousCourseListScrollTop);
+    }
     if (options.resetContentScroll) {
       resetContentScroll();
     }
@@ -95,7 +102,7 @@ export function createApp(app: HTMLElement): void {
     activeLessonId = normalizedLessonId;
     activeTab = "explain";
     persistSelectedLesson(normalizedLessonId);
-    renderApp(scrollReason, { resetContentScroll: true });
+    renderApp(scrollReason, { preserveCourseListScroll: true, resetContentScroll: true });
   }
 }
 
@@ -142,4 +149,11 @@ function resetContentScroll(): void {
     document.querySelector<HTMLElement>(".content-area")?.scrollTo({ top: 0, left: 0 });
     window.scrollTo({ top: 0, left: 0 });
   });
+}
+
+function restoreCourseListScroll(scrollTop: number): void {
+  const list = document.querySelector<HTMLElement>(".course-list");
+  if (!list) return;
+
+  list.scrollTop = scrollTop;
 }
