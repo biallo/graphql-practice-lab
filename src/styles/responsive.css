@@ -1,0 +1,45 @@
+@media (max-width: 900px) {
+  .app-shell {
+    display: block;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mobile-picker {
+    display: grid;
+    gap: 0.38rem;
+  }
+
+  .mobile-picker span {
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 720;
+  }
+
+  .mobile-picker select {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 0;
+    background: var(--panel);
+    padding: 0.82rem;
+    color: var(--ink);
+  }
+
+  .course-list {
+    display: none;
+  }
+
+  .content-area {
+    padding: 1rem;
+  }
+
+  .lesson-header h2 {
+    max-width: none;
+    font-size: clamp(2.2rem, 12vw, 3.4rem);
+  }
+}

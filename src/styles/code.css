@@ -1,0 +1,80 @@
+.code-stack {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.code-card {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #2f3140;
+  border-radius: 6px;
+  background: var(--code-bg);
+}
+
+.code-card figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid #2f3140;
+  padding: 0.72rem 0.9rem;
+  color: #f4efff;
+}
+
+.code-card figcaption code {
+  color: #f6a9df;
+  font-size: 0.78rem;
+}
+
+.code-card pre {
+  margin: 0;
+  overflow-x: auto;
+  padding: 1rem 0;
+}
+
+.code-card code {
+  font-family:
+    "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.code-line {
+  display: grid;
+  grid-template-columns: 3rem minmax(max-content, 1fr);
+  min-height: 1.72rem;
+  padding-right: 1rem;
+  color: #e6e6ec;
+}
+
+.code-line.is-marked {
+  background: var(--code-line);
+}
+
+.line-number {
+  padding-right: 0.75rem;
+  color: #71758a;
+  text-align: right;
+  user-select: none;
+}
+
+.line-content {
+  white-space: pre;
+}
+
+.token-comment {
+  color: #8ca08f;
+}
+
+.token-keyword {
+  color: #ff83d1;
+}
+
+.token-string {
+  color: #ffd27d;
+}
+
+.token-punctuation {
+  color: #8ab4ff;
+}

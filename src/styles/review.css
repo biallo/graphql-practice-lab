@@ -1,0 +1,60 @@
+.review-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.review-item {
+  border: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.review-item summary {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem;
+  font-weight: 760;
+  list-style: none;
+  cursor: pointer;
+}
+
+.review-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.review-item summary span {
+  flex: 0 0 auto;
+  color: var(--brand-dark);
+}
+
+.review-item p {
+  margin: 0;
+  border-top: 1px solid var(--border);
+  padding: 1rem;
+  color: var(--muted);
+}
+
+.complete-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1.2rem;
+}
+
+.complete-button {
+  min-width: 9.4rem;
+  border: 0;
+  background: var(--brand);
+  padding: 0.88rem 1.2rem;
+  color: #fff;
+  font-weight: 800;
+}
+
+.complete-button:hover {
+  background: var(--brand-dark);
+}
+
+.complete-button.is-complete {
+  background: #b8bac4;
+  color: #ffffff;
+  cursor: default;
+}

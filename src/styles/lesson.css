@@ -1,0 +1,115 @@
+.lesson-header {
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 0 1.5rem;
+}
+
+.lesson-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.lesson-kicker span {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  padding: 0.24rem 0.55rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.lesson-kicker .done-pill {
+  border-color: rgba(23, 138, 85, 0.24);
+  color: var(--green);
+}
+
+.lesson-header h2 {
+  margin: 0;
+  max-width: 14ch;
+  font-size: clamp(1.25rem, 3vw, 2.5rem);
+  line-height: 0.95;
+}
+
+.lesson-header p {
+  max-width: 48rem;
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  line-height: 1.75;
+}
+
+.tab-list {
+  display: flex;
+  gap: 0.4rem;
+  border-bottom: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+.tab-button {
+  border: 0;
+  border-bottom: 0.22rem solid transparent;
+  background: transparent;
+  padding: 0.82rem 1rem;
+  color: var(--muted);
+  font-weight: 760;
+}
+
+.tab-button.is-active {
+  border-color: var(--brand);
+  color: var(--ink);
+}
+
+.tab-panel {
+  padding: 1.8rem 0 3rem;
+}
+
+.section-stack {
+  display: grid;
+  gap: 1.65rem;
+  max-width: 58rem;
+}
+
+.content-section {
+  padding: 0.35rem 0;
+}
+
+.content-section h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.18rem;
+  line-height: 1.35;
+}
+
+.content-section p {
+  max-width: 56rem;
+  margin: 0.65rem 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 0.55rem;
+  max-width: 58rem;
+  margin: 2rem 0;
+}
+
+.feature-card {
+  border-left: 3px solid rgba(225, 0, 152, 0.42);
+  background: rgba(255, 255, 255, 0.62);
+  padding: 0.8rem 1rem;
+}
+
+.feature-card h4 {
+  margin: 0 0 0.4rem;
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.feature-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}

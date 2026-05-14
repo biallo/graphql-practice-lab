@@ -1,0 +1,16 @@
+.app-shell {
+  display: grid;
+  grid-template-columns: minmax(18rem, 22rem) minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.content-area {
+  width: 100%;
+  min-width: 0;
+  padding: clamp(1rem, 3vw, 2.5rem);
+}
+
+.lesson-panel {
+  width: min(100%, 72rem);
+  margin: 0 auto;
+}
