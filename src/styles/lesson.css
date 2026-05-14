@@ -90,7 +90,7 @@
 
 .feature-grid {
   display: grid;
-  gap: 0.55rem;
+  gap: 1rem;
   max-width: 58rem;
   margin: 2rem 0;
 }

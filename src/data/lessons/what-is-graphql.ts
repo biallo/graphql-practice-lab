@@ -10,7 +10,7 @@ export const whatIsGraphql: Lesson = {
       heading: "GraphQL 的定义",
       body: [
         "GraphQL 是面向 API 的查询语言，也是一套服务端执行模型。客户端发送一个结构化查询，服务端按 Schema 校验请求，然后只返回查询中声明的字段。",
-        "它不绑定数据库。GraphQL 服务可以从数据库、REST 服务、第三方 API 或内存数据中取数，关键是把这些数据组织成一个类型明确的 API 面。",
+        "它不绑定数据库。GraphQL 服务可以从数据库、REST 服务、第三方 API 或内存数据中获取数据，关键是把这些数据组织成一个类型明确的 API。",
       ],
     },
     {
