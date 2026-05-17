@@ -12,3 +12,9 @@
 npm install
 npm run dev
 ```
+
+## 编译和构建
+
+```shell
+npm run build
+```
