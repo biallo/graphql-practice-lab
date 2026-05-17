@@ -6,7 +6,7 @@
 
 [https://biallo.github.io/graphql-practice-lab/](https://biallo.github.io/graphql-practice-lab/)
 
-## 运行
+## 开发
 
 ```bash
 npm install
